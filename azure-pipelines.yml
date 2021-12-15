@@ -24,7 +24,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'Docker'
-        repository: 'mydockercontainerpersonal'
+        repository: 'mydockercontainer'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
@@ -32,5 +32,5 @@ stages:
       inputs:
         azureSubscription: 'Suscripción de Azure 1(51409fb3-026e-4469-85e0-9b2e9a1892dc)'
         appName: 'td2-personal'
-        imageName: 'mydockercontainerpersonal'
+        imageName: 'mydockercontainer'
   
