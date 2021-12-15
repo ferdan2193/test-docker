@@ -38,4 +38,4 @@ stages:
         resourceGroupName: 'Test-group-personal-docker'
         slotName: 'production'
         imageName: 'mydockercontainerpersonal'
-        containerCommand: 'func start''
+        containerCommand: 'func start'
