@@ -35,3 +35,4 @@ stages:
         appType: 'functionAppContainer'
         WebAppName: 'td2-personal'
         VirtualApplication: 'test'
+        DockerNamespace: mydockercontainerpersonal.azurecr.io/mydockercontainerpersonal:latest
