@@ -28,15 +28,6 @@ stages:
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
-    - task: AzureRmWebAppDeployment@4
-      inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'Suscripción de Azure 1(51409fb3-026e-4469-85e0-9b2e9a1892dc)'
-        appType: 'functionAppContainer'
-        WebAppName: 'td2-personal'
-        VirtualApplication: 'test'
-        DockerNamespace: mydockercontainerpersonal.azurecr.io/mydockercontainerpersonal:latest
-        DockerRepository: mydockercontainerpersonal
     - task: AzureFunctionAppContainer@1
       inputs:
         azureSubscription: 'Suscripción de Azure 1(51409fb3-026e-4469-85e0-9b2e9a1892dc)'
