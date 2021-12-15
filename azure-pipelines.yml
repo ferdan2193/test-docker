@@ -28,3 +28,9 @@ stages:
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
+
+- task: AzureFunctionAppContainer@1
+  inputs:
+    azureSubscription: 'Suscripción de Azure 1(51409fb3-026e-4469-85e0-9b2e9a1892dc)'
+    appName: 'testdocker-personal'
+    imageName: 'mydockercontainerpersonal'
