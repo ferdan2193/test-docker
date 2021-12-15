@@ -1,11 +1,11 @@
-FROM mcr.microsoft.com/playwright:focal
+# To enable ssh & remote debugging on app service change the base image to the one below
+# FROM mcr.microsoft.com/azure-functions/node:3.0-appservice
+FROM mcr.microsoft.com/azure-functions/node:3.0
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
-    AzureFunctionsJobHost__Loggin__Console__IsEnabled=true
+    AzureFunctionsJobHost__Logging__Console__IsEnabled=true
 
-COPY package*.json ./
-
-RUN node --version
-RUN npm --version
-CMD ["npm", "install"]
 COPY . /home/site/wwwroot
+
+RUN cd /home/site/wwwroot && \
+    npm install
