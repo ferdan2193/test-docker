@@ -20,6 +20,11 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
+    
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'Docker'
+        command: 'login'
     - task: Docker@2
       displayName: Build an image
       inputs:
@@ -40,5 +45,6 @@ stages:
         azureSubscription: 'Suscripción de Azure 1(51409fb3-026e-4469-85e0-9b2e9a1892dc)'
         appName: 'td2-personal'
         imageName: 'mydockercontainer'
+
         
   
