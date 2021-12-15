@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/playwright:focal
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Loggin__Console__IsEnabled=true
 
-COPY package*.json
+COPY package*.json ./
 
 RUN node --version
 RUN npm --version
