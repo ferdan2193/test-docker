@@ -9,5 +9,3 @@ RUN node --version
 RUN npm --version
 CMD ["npm", "install"]
 COPY . /home/site/wwwroot
-
-CMD ["npm", "npx playwright install --with-deps"]
