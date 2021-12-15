@@ -1,0 +1,15 @@
+{
+  "name": "Test",
+  "version": "0.0.1",
+  "description": "Test de docker",
+  "scripts": {
+    "test": "echo \"No tests yet...\""
+  },
+  "author": "",
+  "dependencies": {
+    "ceruleoscope": "^0.1.1",
+    "playwright": "^1.17.1",
+    "playwright-chromium": "^1.17.1",
+    "playwright-core": "^1.17.1"
+  }
+}
