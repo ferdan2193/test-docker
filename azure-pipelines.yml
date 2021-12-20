@@ -25,7 +25,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'Docker'
-        repository: 'mydockercontainerpersonal'
+        repository: 'dockercontainertestfunc'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
@@ -34,8 +34,8 @@ stages:
     - task: AzureFunctionAppContainer@1
       inputs:
         azureSubscription: 'Suscripción de Azure 1(51409fb3-026e-4469-85e0-9b2e9a1892dc)'
-        appName: 'td2-personal'
-        imageName: 'mydockercontainerpersonal.azurecr.io/mydockercontainerpersonal:29'
+        appName: 'dockeratfunc'
+        imageName: 'dockercontainertestfunc.azurecr.io/dockercontainertestfunc:1'
 
         
   
