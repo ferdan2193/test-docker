@@ -3,7 +3,7 @@ module.exports = async function (context, myTimer) {
     
     if (myTimer.IsPastDue)
     {
-        context.log('JavaScript is running late!');
+        context.log('JavaScript is running late! Fernando');
     }
     context.log('JavaScript timer trigger function ran!', timeStamp);   
 };
