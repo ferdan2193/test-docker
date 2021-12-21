@@ -5,5 +5,5 @@ module.exports = async function (context, myTimer) {
     {
         context.log('JavaScript is running late! Fernando');
     }
-    context.log('JavaScript timer trigger function ran!', timeStamp);   
+    context.log('JavaScript timer trigger function ran Fernando!', timeStamp);   
 };
