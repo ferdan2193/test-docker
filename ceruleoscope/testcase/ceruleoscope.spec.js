@@ -1,8 +1,8 @@
-import { test } from 'ceruleoscope';
-
+const { test } = require('ceruleoscope');
 let appInsights = require('applicationinsights');
 
-test('TestTuEmpresa', async ({ page }) => {
+const telemetry = appInsights.defaultClient;
+test('tu-mpresa', async ({ page }) => {
     await page.goto('https://tuempresa.com.mx/');
     // Click text=PORTAFOLIO
     await page.click('text=PORTAFOLIO');
