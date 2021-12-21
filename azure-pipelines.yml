@@ -26,8 +26,17 @@ stages:
       inputs:
         containerRegistry: 'Docker'
         repository: 'dockercontainertestfunc'
-        command: 'buildAndPush'
+        command: 'build'
+        arguments: --ipc=host
         Dockerfile: '**/Dockerfile'
+        tags: '$(tag)'
+        
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+        containerRegistry: 'Docker'
+        repository: 'dockercontainertestfunc'
+        command: 'push'
         tags: '$(tag)'
       
 
