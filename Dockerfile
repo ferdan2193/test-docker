@@ -5,6 +5,8 @@ FROM mcr.microsoft.com/playwright:v1.17.0-focal
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true
 
+RUN npm install -g npm@8.3.0
+
 COPY . /home/site/wwwroot
 
 RUN cd /home/site/wwwroot && \
