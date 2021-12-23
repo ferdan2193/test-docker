@@ -34,7 +34,7 @@ stages:
     - task: AzureFunctionAppContainer@1
       inputs:
         azureSubscription: 'Suscripción de Azure 1(51409fb3-026e-4469-85e0-9b2e9a1892dc)'
-        appName: 'dockeratfunc'
+        appName: 'func2docker'
         imageName: 'dockercontainertestfunc.azurecr.io/dockercontainertestfunc:$(tag)'
 
         
