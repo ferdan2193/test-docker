@@ -15,9 +15,7 @@ RUN cd /home/site/wwwroot && \
 RUN cd /home/site/wwwroot && \
     npm install --loglevel verbose
 
-
-RUN cd /home/site/wwwroot/node_modules/playwright && \    
-    node install.js --verbose
-
 RUN cd /home/site/wwwroot && \
     npx playwright install --with-deps
+
+RUN node /home/site/wwwroot/node_modules/playwright/install.js
