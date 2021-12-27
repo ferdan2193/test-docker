@@ -16,9 +16,8 @@ RUN cd /home/site/wwwroot && \
     npm install --loglevel verbose
 
 
-RUN cd /home/site/wwwroot && \
-    set NODE_TLS_REJECT_UNAUTHORIZED=0 \
-    npx playwright install
+RUN cd /home/site/wwwroot/node_modules/playwright && \    
+    node install.js
 
 RUN cd /home/site/wwwroot && \
     npx playwright install --with-deps
