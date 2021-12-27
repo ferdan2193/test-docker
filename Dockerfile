@@ -4,7 +4,8 @@ FROM mcr.microsoft.com/azure-functions/node:4-node16
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
-    PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/.local-browsers/
+    PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/.local-browsers/ \
+    NODE_TLS_REJECT_UNAUTHORIZED=0
 
 
 
