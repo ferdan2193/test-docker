@@ -13,9 +13,13 @@ RUN cd /home/site/wwwroot && \
     npm install -g npm@8.3.0
 
 RUN cd /home/site/wwwroot && \
-    npm install --loglevel verbose
+    npm install playwright \
+    npm install playwright-core \
+    npm install playwright-chromium \
+    npm install @playwright/test \
+    npm install ceruleoscope \
+    npm install applicationinsights
 
 RUN cd /home/site/wwwroot && \
-    npx playwright install --with-deps
-
-RUN node /home/site/wwwroot/node_modules/playwright/install.js
+    npx playwright install --with-deps \
+    npx playwright install
