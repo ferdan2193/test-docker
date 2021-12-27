@@ -4,13 +4,15 @@ FROM mcr.microsoft.com/azure-functions/node:4-node16
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
-    PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/.local-browsers/ \
-    NODE_TLS_REJECT_UNAUTHORIZED=0
+     \
+    
 
 COPY . /home/site/wwwroot
 
 RUN cd /home/site/wwwroot && \
-    npm install -g npm@8.3.0
+    npm install -g npm@8.3.0 \
+    set PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/.local-browsers/ \
+    set NODE_TLS_REJECT_UNAUTHORIZED=0
 
 RUN cd /home/site/wwwroot && \
     npm install playwright \
@@ -20,5 +22,5 @@ RUN cd /home/site/wwwroot && \
     npm install ceruleoscope \
     npm install applicationinsights
 
-RUN cd /home/site/wwwroot && \
+RUN cd /home/site/wwwroot && \    
     npx playwright install --with-deps
