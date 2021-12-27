@@ -16,11 +16,21 @@ RUN set PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chro
 RUN set NODE_TLS_REJECT_UNAUTHORIZED=0
 
 RUN cd /home/site/wwwroot && \
-    npm install playwright \
-    npm install playwright-core \
-    npm install playwright-chromium \
-    npm install @playwright/test \
-    npm install ceruleoscope \
+    npm install playwright 
+
+RUN cd /home/site/wwwroot && \
+    npm install playwright-core
+
+RUN cd /home/site/wwwroot && \
+    npm install playwright-chromium
+
+RUN cd /home/site/wwwroot && \
+    npm install @playwright/test
+
+RUN cd /home/site/wwwroot && \
+    npm install ceruleoscope 
+
+RUN cd /home/site/wwwroot &&
     npm install applicationinsights
 
 RUN cd /home/site/wwwroot && \    
