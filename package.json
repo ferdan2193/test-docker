@@ -11,6 +11,7 @@
     "applicationinsights": "^2.2.0",
     "ceruleoscope": "^0.1.1",
     "playwright": "^1.17.1",
-    "playwright-chromium": "^1.17.1"
+    "playwright-chromium": "^1.17.1",
+    "playwright-core": "^1.17.1"
   }
 }
