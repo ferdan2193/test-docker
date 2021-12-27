@@ -11,7 +11,14 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
 COPY . /home/site/wwwroot
 
 RUN cd /home/site/wwwroot && \
+    npm install -g npm@8.3.0
+
+RUN cd /home/site/wwwroot && \
     npm install --loglevel verbose
+
+
+RUN cd /home/site/wwwroot && \
+    npx playwright install
 
 RUN cd /home/site/wwwroot && \
     npx playwright install --with-deps
