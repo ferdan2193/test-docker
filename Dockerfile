@@ -34,4 +34,4 @@ RUN cd /home/site/wwwroot && \
     npm install applicationinsights --verbose
 
 RUN cd /home/site/wwwroot && \    
-    npx playwright install --with-deps --verbose
+    npx playwright install --with-deps
