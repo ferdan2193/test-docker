@@ -22,4 +22,4 @@ RUN cd /home/site/wwwroot && \
 
 RUN cd /home/site/wwwroot && \
     npx playwright install --with-deps \
-    npx playwright install
+    npx playwright install chromium
