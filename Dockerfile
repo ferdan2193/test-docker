@@ -21,5 +21,4 @@ RUN cd /home/site/wwwroot && \
     npm install applicationinsights
 
 RUN cd /home/site/wwwroot && \
-    npx playwright install --with-deps \
-    npx playwright install chromium
+    npx playwright install chromium --with-deps
