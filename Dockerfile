@@ -13,4 +13,5 @@ COPY . /home/site/wwwroot
 RUN cd /home/site/wwwroot && \
     npm install
 
-RUN npx playwright install --with-deps
+RUN cd /home/site/wwwroot && \
+    npx playwright install --with-deps
