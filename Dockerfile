@@ -30,7 +30,7 @@ RUN cd /home/site/wwwroot && \
 RUN cd /home/site/wwwroot && \
     npm install ceruleoscope 
 
-RUN cd /home/site/wwwroot &&
+RUN cd /home/site/wwwroot && \
     npm install applicationinsights
 
 RUN cd /home/site/wwwroot && \    
