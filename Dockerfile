@@ -7,8 +7,6 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/.local-browsers/ \
     NODE_TLS_REJECT_UNAUTHORIZED=0
 
-
-
 COPY . /home/site/wwwroot
 
 RUN cd /home/site/wwwroot && \
@@ -19,6 +17,7 @@ RUN cd /home/site/wwwroot && \
 
 
 RUN cd /home/site/wwwroot && \
+    set NODE_TLS_REJECT_UNAUTHORIZED=0 \
     npx playwright install
 
 RUN cd /home/site/wwwroot && \
