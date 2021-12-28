@@ -28,6 +28,10 @@ RUN export PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-c
 
 RUN export NODE_TLS_REJECT_UNAUTHORIZED=0
 
+#Added next to lines
+RUN cd /home/site/wwwroot && \    
+    npm i -g azure-functions-core-tools@4 --unsafe-perm true
+
 RUN cd /home/site/wwwroot && \
     npm install playwright --verbose
 
@@ -52,11 +56,8 @@ RUN cd /home/site/wwwroot && \
 RUN cd /home/site/wwwroot && \    
     npx playwright install --with-deps
 
-#Added next to lines
-RUN cd /home/site/wwwroot && \    
-    npm i -g azure-functions-core-tools@4 --unsafe-perm true
 
-RUN func start
+CMD ["func", "start"]
 
 #We expose the port to enable ssh
 EXPOSE 80 2222
