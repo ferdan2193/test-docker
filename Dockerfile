@@ -43,6 +43,9 @@ RUN cd /home/site/wwwroot && \
     npm install applicationinsights --verbose
 
 RUN cd /home/site/wwwroot && \    
+    npx playwright install
+
+RUN cd /home/site/wwwroot && \    
     npx playwright install --with-deps
 
 EXPOSE 80 2222
