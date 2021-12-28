@@ -20,9 +20,9 @@ COPY . /home/site/wwwroot
 RUN cd /home/site/wwwroot && \
     npm install -g npm@8.3.0
 
-RUN set PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/.local-browsers/
+RUN PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/.local-browsers/
 
-RUN set NODE_TLS_REJECT_UNAUTHORIZED=0
+RUN NODE_TLS_REJECT_UNAUTHORIZED=0
 
 RUN cd /home/site/wwwroot && \
     npm install playwright --verbose
