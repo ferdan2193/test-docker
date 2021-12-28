@@ -52,8 +52,6 @@ RUN cd /home/site/wwwroot && \
 RUN cd /home/site/wwwroot && \    
     npx playwright install --with-deps
 
-RUN cd /home/site/wwwroot && \    
-    npx playwright install --with-deps
 
 #We expose the port to enable ssh
 EXPOSE 80 2222
