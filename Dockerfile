@@ -7,17 +7,6 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/local-browsers/ \
     NODE_TLS_REJECT_UNAUTHORIZED=0
 
-#This works to enable ssh in advanced tools
-ENV SSH_PASSWD "root:Docker!"
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends openssh-server \
-    && echo "$SSH_PASSWD" | chpasswd
- 
-COPY sshd_config /etc/ssh/
-COPY init.sh /usr/local/bin/
- 
-RUN chmod u+x /usr/local/bin/init.sh
-#Until here
 
 COPY . /home/site/wwwroot
 
@@ -59,7 +48,4 @@ RUN cd /home/site/wwwroot && \
 RUN cd /home/site/wwwroot && \    
     npx playwright install-deps
 
-#We expose the port to enable ssh
-EXPOSE 80 2222
-ENTRYPOINT ["init.sh"]
 
