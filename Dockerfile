@@ -3,7 +3,9 @@
 FROM mcr.microsoft.com/azure-functions/node:4-node16
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
-    AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+    AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
+    PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/local-browsers/ \
+    NODE_TLS_REJECT_UNAUTHORIZED=0
 
 ENV SSH_PASSWD "root:Docker!"
 RUN apt-get update \
@@ -20,7 +22,7 @@ COPY . /home/site/wwwroot
 RUN cd /home/site/wwwroot && \
     npm install -g npm@8.3.0
 
-RUN export PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/.local-browsers/
+RUN export PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/local-browsers/
 
 RUN export NODE_TLS_REJECT_UNAUTHORIZED=0
 
