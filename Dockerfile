@@ -35,8 +35,3 @@ RUN cd /home/site/wwwroot && \
 
 RUN cd /home/site/wwwroot && \    
     npx playwright install --with-deps
-
-EXPOSE 2222 80
-
-RUN cd /home/site/wwwroot && \    
-    npx playwright install
