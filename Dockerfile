@@ -21,6 +21,7 @@ COPY init.sh /usr/local/bin/
 RUN chmod u+x /usr/local/bin/init.sh
 #Until here
 #Install dependencies
+RUN apt-get update && apt-get install -y apt-transport-https
 RUN apt-get curl
 RUN mkdir dependencies
 RUN cd dependencies && \
