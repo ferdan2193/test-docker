@@ -21,7 +21,7 @@ COPY init.sh /usr/local/bin/
 RUN chmod u+x /usr/local/bin/init.sh
 #Until here
 #Install dependencies
-RUN apt-get install curl
+RUN apt-get curl
 RUN mkdir dependencies
 RUN cd dependencies && \
     curl http://ftp.de.debian.org/debian/pool/non-free/f/fonts-ubuntu/fonts-ubuntu_0.83-4_all.deb -o fontubuntu.deb && \
