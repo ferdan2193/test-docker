@@ -38,7 +38,7 @@ RUN cd dependencies && \
     dpkg -i ttfubuntu.deb && \
     dpkg -i libjpeg.deb && \
     dpkg -i libicu66.deb && \
-    dpkg -i libenchant1c2a.deb && \
+    dpkg -i libenchant1c2a.deb --configure && \
     apt --fix-broken install
 #
 
