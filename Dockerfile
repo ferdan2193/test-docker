@@ -12,15 +12,13 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
 
 
 #This works to enable ssh in advanced tools
-ENV SSH_PASSWD "root:Docker!"
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends openssh-server \
-    && echo "$SSH_PASSWD" | chpasswd
- 
-COPY sshd_config /etc/ssh/
-COPY init.sh /usr/local/bin/
- 
-RUN chmod u+x /usr/local/bin/init.sh
+RUN apt update && apt install  openssh-server sudo -y
+
+RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
+
+RUN  echo 'test:test' | chpasswd
+
+RUN service ssh start
 #Until here
 
 #Install node
@@ -76,5 +74,4 @@ RUN cd /home/site/wwwroot && \
     npx playwright install
 #We expose the port to enable ssh
 EXPOSE 80 22
-ENTRYPOINT ["init.sh"]
-
+CMD ["/usr/sbin/sshd","-D"]
