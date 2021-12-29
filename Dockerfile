@@ -23,6 +23,7 @@ COPY init.sh /usr/local/bin/
 RUN chmod u+x /usr/local/bin/init.sh
 #Until here
 
+#Install node
 ENV NODE_VERSION=16.13.1
 RUN apt-get update
 RUN apt install -y curl
@@ -34,7 +35,7 @@ RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 RUN node --version
 RUN npm --version
-
+#End install node
 
 
 
