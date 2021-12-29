@@ -1,6 +1,6 @@
 # To enable ssh & remote debugging on app service change the base image to the one below
 # FROM mcr.microsoft.com/azure-functions/node:3.0-appservice
-FROM ubuntu:20.04
+FROM ubuntu:21.04
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
@@ -12,15 +12,15 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
 
 
 #This works to enable ssh in advanced tools
-ENV SSH_PASSWD "root:Docker!"
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends openssh-server \
-    && echo "$SSH_PASSWD" | chpasswd
+#ENV SSH_PASSWD "root:Docker!"
+#RUN apt-get update \
+#    && apt-get install -y --no-install-recommends openssh-server \
+#    && echo "$SSH_PASSWD" | chpasswd
  
-COPY sshd_config /etc/ssh/
-COPY init.sh /usr/local/bin/
+#COPY sshd_config /etc/ssh/
+#COPY init.sh /usr/local/bin/
  
-RUN chmod u+x /usr/local/bin/init.sh
+#RUN chmod u+x /usr/local/bin/init.sh
 #Until here
 
 #Install node
@@ -75,6 +75,6 @@ RUN cd /home/site/wwwroot && \
 RUN cd /home/site/wwwroot && \    
     npx playwright install
 #We expose the port to enable ssh
-EXPOSE 80 2222
-ENTRYPOINT ["init.sh"]
+#EXPOSE 80 2222
+#ENTRYPOINT ["init.sh"]
 
