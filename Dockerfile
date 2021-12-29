@@ -39,10 +39,10 @@ RUN cd dependencies && \
     dpkg -i libjpeg.deb && \
     dpkg -i libicu66.deb
 
-RUN cd dependencies && \
-    dpkg --ignore-depends=libenchant1c2a.deb
+#RUN cd dependencies && \
+#    dpkg --ignore-depends=libenchant1c2a.deb
 
-RUN apt --fix-broken install
+#RUN apt --fix-broken install
 #
 
 COPY . /home/site/wwwroot
