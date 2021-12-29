@@ -37,7 +37,7 @@ RUN cd dependencies && \
     dpkg -i fontubuntu.deb && \
     dpkg -i ttfubuntu.deb && \
     dpkg -i libjpeg.deb && \
-    dpkg -i libicu66 && \
+    dpkg -i libicu66.deb && \
     dpkg -i libenchant1c2a.deb && \
     apt --fix-broken install
 #
