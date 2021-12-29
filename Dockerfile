@@ -9,7 +9,20 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureWebJobsStorage="DefaultEndpointsProtocol=https;AccountName=fstoragetestdocker;AccountKey=xmS8Ljan9nplvDaZZCUGgyHsQxev8h/Nc66PYwOpuVN2Wfu5UlOyI+39zoJg8ilQkeruo562My72lUF2UOBwDA==;EndpointSuffix=core.windows.net" \
     APPINSIGHTS_INSTRUMENTATIONKEY="b403b622-4ecd-4ab5-9200-b973f556a4c0"
 
+RUN apk add openssh \
+     && echo "root:Docker!" | chpasswd 
 
+# Copy the sshd_config file to the /etc/ssh/ directory
+COPY sshd_config /etc/ssh/
+
+# Copy and configure the ssh_setup file
+RUN mkdir -p /tmp
+COPY ssh_setup.sh /tmp
+RUN chmod +x /tmp/ssh_setup.sh \
+    && (sleep 1;/tmp/ssh_setup.sh 2>&1 > /dev/null)
+
+# Open port 2222 for SSH access
+EXPOSE 80 2222
 
 #This works to enable ssh in advanced tools
 #ENV SSH_PASSWD "root:Docker!"
@@ -76,5 +89,5 @@ RUN cd /home/site/wwwroot && \
     npx playwright install
 #We expose the port to enable ssh
 #EXPOSE 80 2222
-#ENTRYPOINT ["init.sh"]
+ENTRYPOINT ["startup.sh"]
 
