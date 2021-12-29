@@ -22,7 +22,7 @@ RUN chmod u+x /usr/local/bin/init.sh
 #Until here
 #Install dependencies
 RUN apt-get update && apt-get install -y apt-transport-https
-RUN apt-get curl
+RUN apt install curl
 RUN mkdir dependencies
 RUN cd dependencies && \
     curl http://ftp.de.debian.org/debian/pool/non-free/f/fonts-ubuntu/fonts-ubuntu_0.83-4_all.deb -o fontubuntu.deb && \
