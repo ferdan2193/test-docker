@@ -40,7 +40,7 @@ RUN cd dependencies && \
     dpkg -i libicu66.deb
 
 RUN cd dependencies && \
-    dpkg --force-all -i libenchant1c2a.deb && \
+    dpkg --force-all -i -y libenchant1c2a.deb && \
     apt --fix-broken install
 #
 
