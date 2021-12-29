@@ -10,6 +10,7 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     APPINSIGHTS_INSTRUMENTATIONKEY="b403b622-4ecd-4ab5-9200-b973f556a4c0"
 
 ENV NODE_VERSION=16.13.1s
+RUN apt-get update
 RUN apt install -y curl
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 ENV NVM_DIR=/root/.nvm
