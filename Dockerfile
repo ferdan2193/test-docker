@@ -40,7 +40,7 @@ RUN cd dependencies && \
     dpkg -i libicu66.deb
 
 RUN cd dependencies && \
-    dpkg -i --ignore-depends libenchant1c2a.deb
+    dpkg --ignore-depends -i libenchant1c2a.deb
 
 RUN apt --fix-broken install
 #
