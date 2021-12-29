@@ -9,7 +9,7 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureWebJobsStorage="DefaultEndpointsProtocol=https;AccountName=fstoragetestdocker;AccountKey=xmS8Ljan9nplvDaZZCUGgyHsQxev8h/Nc66PYwOpuVN2Wfu5UlOyI+39zoJg8ilQkeruo562My72lUF2UOBwDA==;EndpointSuffix=core.windows.net" \
     APPINSIGHTS_INSTRUMENTATIONKEY="b403b622-4ecd-4ab5-9200-b973f556a4c0"
 
-RUN apt add openssh \
+RUN apt-get install -y openssh \
      && echo "root:Docker!" | chpasswd 
 
 # Copy the sshd_config file to the /etc/ssh/ directory
