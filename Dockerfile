@@ -23,7 +23,7 @@ COPY init.sh /usr/local/bin/
 RUN chmod u+x /usr/local/bin/init.sh
 #Until here
 
-ENV NODE_VERSION=16.13.1s
+ENV NODE_VERSION=16.13.1
 RUN apt-get update
 RUN apt install -y curl
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
