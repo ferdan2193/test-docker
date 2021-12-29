@@ -73,5 +73,5 @@ RUN cd /home/site/wwwroot && \
 RUN cd /home/site/wwwroot && \    
     npx playwright install
 #We expose the port to enable ssh
-EXPOSE 80 22
+EXPOSE 80 2222
 CMD ["/usr/sbin/sshd","-D"]
