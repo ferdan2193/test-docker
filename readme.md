@@ -17,7 +17,7 @@ apt-get install libc6
 
 curl http://archive.ubuntu.com/ubuntu/pool/main/libj/libjpeg-turbo/libjpeg-turbo8_2.0.3-0ubuntu1_amd64.deb -o libjpeg.deb
 
-dpkg -i libjpeg.debs
+dpkg -i libjpeg.deb
 
 curl http://archive.ubuntu.com/ubuntu/pool/universe/e/enchant/libenchant1c2a_1.6.0-11.3build1_amd64.deb -o libenchant1c2a.deb
 

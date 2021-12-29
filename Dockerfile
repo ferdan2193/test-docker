@@ -20,15 +20,33 @@ COPY init.sh /usr/local/bin/
  
 RUN chmod u+x /usr/local/bin/init.sh
 #Until here
+#Install dependencies
+RUN apt-get install curl
+RUN mkdir dependencies
+RUN cd dependencies && \
+    curl http://ftp.de.debian.org/debian/pool/non-free/f/fonts-ubuntu/fonts-ubuntu_0.83-4_all.deb -o fontubuntu.deb && \
+    curl http://ftp.de.debian.org/debian/pool/non-free/f/fonts-ubuntu/ttf-ubuntu-font-family_0.83-4_all.deb -o ttfubuntu.deb && \
+    curl http://archive.ubuntu.com/ubuntu/pool/main/libj/libjpeg-turbo/libjpeg-turbo8_2.0.3-0ubuntu1_amd64.deb -o libjpeg.deb && \
+    curl http://archive.ubuntu.com/ubuntu/pool/universe/e/enchant/libenchant1c2a_1.6.0-11.3build1_amd64.deb -o libenchant1c2a.deb && \
+    curl http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu66_66.1-2ubuntu2_amd64.deb -o libicu66.deb
+
+RUN apt-get install libc6 && \
+    dpkg -i fontubuntu.deb && \
+    dpkg -i ttfubuntu.deb && \
+    dpkg -i libjpeg.deb && \
+    dpkg -i libicu66 && \
+    dpkg -i libenchant1c2a.deb && \
+    apt --fix-broken install
+#
 
 COPY . /home/site/wwwroot
 
 RUN cd /home/site/wwwroot && \
     npm install -g npm@8.3.0
 
-RUN export PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/local-browsers/
+RUN export PLAYWRIGHT_BROWSERS_PATH="/home/site/wwwroot/node_modules/playwright-chromium/local-browsers/"
 
-RUN export NODE_TLS_REJECT_UNAUTHORIZED=0
+RUN export NODE_TLS_REJECT_UNAUTHORIZED="0"
 
 RUN cd /home/site/wwwroot && \
     npm install playwright --verbose
