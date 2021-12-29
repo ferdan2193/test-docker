@@ -31,7 +31,8 @@ RUN cd dependencies && \
     curl http://archive.ubuntu.com/ubuntu/pool/universe/e/enchant/libenchant1c2a_1.6.0-11.3build1_amd64.deb -o libenchant1c2a.deb && \
     curl http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu66_66.1-2ubuntu2_amd64.deb -o libicu66.deb
 
-RUN apt-get install libc6 && \
+RUN cd dependencies && \
+    apt-get install libc6 && \
     dpkg -i fontubuntu.deb && \
     dpkg -i ttfubuntu.deb && \
     dpkg -i libjpeg.deb && \
