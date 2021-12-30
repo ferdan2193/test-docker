@@ -4,14 +4,10 @@ FROM mcr.microsoft.com/azure-functions/node:4-node16
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
-    PLAYWRIGHT_BROWSERS_PATH="/home/site/wwwroot/node_modules/playwright-chromium/local-browsers/" \
+    PLAYWRIGHT_BROWSERS_PATH=/home/site/wwwroot/node_modules/playwright-chromium/local-browsers/ \
     NODE_TLS_REJECT_UNAUTHORIZED=0 \
     AzureWebJobsStorage="DefaultEndpointsProtocol=https;AccountName=fstoragetestdocker;AccountKey=xmS8Ljan9nplvDaZZCUGgyHsQxev8h/Nc66PYwOpuVN2Wfu5UlOyI+39zoJg8ilQkeruo562My72lUF2UOBwDA==;EndpointSuffix=core.windows.net" \
-    APPINSIGHTS_INSTRUMENTATIONKEY="b403b622-4ecd-4ab5-9200-b973f556a4c0"
-
-RUN echo 'export APPINSIGHTS_INSTRUMENTATIONKEY="b403b622-4ecd-4ab5-9200-b973f556a4c0" \n\
-export PLAYWRIGHT_BROWSERS_PATH="/home/site/wwwroot/node_modules/playwright-chromium/local-browsers/" \n\
-export AzureWebJobsStorage="DefaultEndpointsProtocol=https;AccountName=fstoragetestdocker;AccountKey=xmS8Ljan9nplvDaZZCUGgyHsQxev8h/Nc66PYwOpuVN2Wfu5UlOyI+39zoJg8ilQkeruo562My72lUF2UOBwDA==;EndpointSuffix=core.windows.net"' > /etc/profile
+    APPINSIGHTS_INSTRUMENTATIONKEY=b403b622-4ecd-4ab5-9200-b973f556a4c0
 
 #This works to enable ssh in advanced tools
 ENV SSH_PASSWD "root:Docker!"
@@ -85,7 +81,6 @@ RUN cd /home/site/wwwroot && \
 
 RUN cd /home/site/wwwroot && \    
     npx playwright install
-
 
 RUN set
 #We expose the port to enable ssh
