@@ -11,7 +11,8 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
 
 RUN echo 'export APPINSIGHTS_INSTRUMENTATIONKEY="b403b622-4ecd-4ab5-9200-b973f556a4c0" \n\
 export PLAYWRIGHT_BROWSERS_PATH="/home/site/wwwroot/node_modules/playwright-chromium/local-browsers/" \n\
-export AzureWebJobsStorage="DefaultEndpointsProtocol=https;AccountName=fstoragetestdocker;AccountKey=xmS8Ljan9nplvDaZZCUGgyHsQxev8h/Nc66PYwOpuVN2Wfu5UlOyI+39zoJg8ilQkeruo562My72lUF2UOBwDA==;EndpointSuffix=core.windows.net"' >> /etc/profile
+export AzureWebJobsStorage="DefaultEndpointsProtocol=https;AccountName=fstoragetestdocker;AccountKey=xmS8Ljan9nplvDaZZCUGgyHsQxev8h/Nc66PYwOpuVN2Wfu5UlOyI+39zoJg8ilQkeruo562My72lUF2UOBwDA==;EndpointSuffix=core.windows.net"  \n\
+export LOCATION="EAST US2"' >> /etc/profile
 
 #This works to enable ssh in advanced tools
 ENV SSH_PASSWD "root:Docker!"
